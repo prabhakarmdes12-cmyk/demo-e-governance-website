@@ -165,110 +165,117 @@ export const App: React.FC = () => {
 
       {/* 3. Main Content Container */}
       <main id="main-content" style={{ flex: 1 }}>
-        {/* Dynamic Hero Section based on Mode */}
+        {/* Dynamic Screen Layout based on Mode */}
         {viewMode === 'ai-first' ? (
-          <AiFirstHero onAskAi={handleOpenAiWithPrompt} />
-        ) : (
-          <CitizenHero
-            isLoggedIn={viewMode === 'citizen-logged-in'}
+          /* Concept 3: INTENT / AI FIRST Screen (Figma Slide 8) */
+          <AiFirstHero
+            onAskAi={handleOpenAiWithPrompt}
             onOpenLogin={() => setIsLoginModalOpen(true)}
-            onOpenAi={() => handleOpenAiWithPrompt('')}
-            onSearch={(query) => handleOpenAiWithPrompt(query)}
-            onQuickViewProfile={() => setIsLoginModalOpen(true)}
-          />
-        )}
-
-        {/* Quick Actions Row */}
-        <QuickActionsBar onActionClick={handleQuickAction} />
-
-        {/* Departments & Services Grid */}
-        <DepartmentGrid onSelectDepartment={handleSelectDepartment} />
-
-        {/* Personalized Citizen Hub (Centerpiece of "02 — CITIZEN FIRST") */}
-        {viewMode === 'citizen-logged-in' ? (
-          <CitizenHub
-            applications={applications}
-            documents={documents}
-            benefits={benefits}
-            onViewApplication={(app) => setSelectedApp(app)}
-            onViewDocument={(doc) => setSelectedDoc(doc)}
-            onUploadDocument={() => setIsUploadModalOpen(true)}
-            onViewBenefit={(benefit) => {
-              handleOpenAiWithPrompt(`Tell me more about eligibility and application steps for ${benefit.title}`);
-            }}
           />
         ) : (
-          /* Unauthenticated Returning Citizen Prompt Banner (Desktop - 6) */
-          <section className="portal-container" style={{ margin: '1.5rem auto' }}>
-            <div
-              style={{
-                background: 'var(--bg-card)',
-                border: '1.5px solid var(--border-card)',
-                borderRadius: '12px',
-                padding: '1.5rem 2rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: '1.5rem',
-                boxShadow: 'var(--shadow-sm)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          /* Concept 2: CITIZEN FIRST Screen (Figma Slide 6 & 7) */
+          <>
+            <CitizenHero
+              isLoggedIn={viewMode === 'citizen-logged-in'}
+              onOpenLogin={() => setIsLoginModalOpen(true)}
+              onOpenAi={() => handleOpenAiWithPrompt('')}
+              onSearch={(query) => handleOpenAiWithPrompt(query)}
+              onQuickViewProfile={() => setIsLoginModalOpen(true)}
+            />
+
+            {/* Quick Actions Row */}
+            <QuickActionsBar onActionClick={handleQuickAction} />
+
+            {/* Departments & Services Grid */}
+            <DepartmentGrid onSelectDepartment={handleSelectDepartment} />
+
+            {/* Personalized Citizen Hub (Centerpiece of "02 — CITIZEN FIRST") */}
+            {viewMode === 'citizen-logged-in' ? (
+              <CitizenHub
+                applications={applications}
+                documents={documents}
+                benefits={benefits}
+                onViewApplication={(app) => setSelectedApp(app)}
+                onViewDocument={(doc) => setSelectedDoc(doc)}
+                onUploadDocument={() => setIsUploadModalOpen(true)}
+                onViewBenefit={(benefit) => {
+                  handleOpenAiWithPrompt(`Tell me more about eligibility and application steps for ${benefit.title}`);
+                }}
+              />
+            ) : (
+              /* Unauthenticated Returning Citizen Prompt Banner (Desktop - 6) */
+              <section className="portal-container" style={{ margin: '1.5rem auto' }}>
                 <div
                   style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: '50%',
-                    background: '#EFF6FF',
-                    color: 'var(--color-primary-blue)',
+                    background: 'var(--bg-card)',
+                    border: '1.5px solid var(--border-card)',
+                    borderRadius: '12px',
+                    padding: '1.5rem 2rem',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '1.5rem',
+                    boxShadow: 'var(--shadow-sm)',
                   }}
                 >
-                  <Fingerprint size={28} />
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.1875rem', fontWeight: 800, margin: '0 0 0.25rem' }}>
-                    Already used a government service?
-                  </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
-                    Securely find and link your existing citizen profile. Instant verification via Aadhaar / Mobile.
-                  </p>
-                </div>
-              </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                    <div
+                      style={{
+                        width: '54px',
+                        height: '54px',
+                        borderRadius: '50%',
+                        background: '#EFF6FF',
+                        color: 'var(--color-primary-blue)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Fingerprint size={28} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '1.1875rem', fontWeight: 800, margin: '0 0 0.25rem' }}>
+                        Already used a government service?
+                      </h3>
+                      <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
+                        Securely find and link your existing citizen profile. Instant verification via Aadhaar / Mobile.
+                      </p>
+                    </div>
+                  </div>
 
-              <button
-                onClick={() => setIsLoginModalOpen(true)}
-                style={{
-                  background: 'var(--color-primary-blue)',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '0.75rem 1.5rem',
-                  fontSize: '0.9375rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  boxShadow: '0 4px 6px rgba(0, 102, 255, 0.25)',
-                }}
-              >
-                <span>Find My Profile</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-          </section>
+                  <button
+                    onClick={() => setIsLoginModalOpen(true)}
+                    style={{
+                      background: 'var(--color-primary-blue)',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '0.75rem 1.5rem',
+                      fontSize: '0.9375rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      boxShadow: '0 4px 6px rgba(0, 102, 255, 0.25)',
+                    }}
+                  >
+                    <span>Find My Profile</span>
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </section>
+            )}
+
+            {/* Popular Services Section (Filter Tabs, Services Grid, Schemes & Announcements) */}
+            <PopularServicesSection
+              onSelectService={handleSelectService}
+              onOpenHelp={() => handleOpenAiWithPrompt('I need help finding the right government service.')}
+            />
+          </>
         )}
-
-        {/* Popular Services Section (Filter Tabs, Services Grid, Schemes & Announcements) */}
-        <PopularServicesSection
-          onSelectService={handleSelectService}
-          onOpenHelp={() => handleOpenAiWithPrompt('I need help finding the right government service.')}
-        />
       </main>
 
       {/* 4. Official Government Footer */}
