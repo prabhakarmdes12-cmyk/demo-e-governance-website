@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Search,
   Bot,
@@ -10,12 +10,16 @@ import {
   FolderCheck,
   Star,
   AlertTriangle,
-  Sparkles
+  Sparkles,
+  Pause,
+  Play
 } from 'lucide-react';
 import { CITIZEN_PROFILE } from '../../data/portalData';
 import avatarPrabhakar from '../../assets/avatar-prabhakar.png';
 import heroScenicClean from '../../assets/hero-scenic-clean.jpg';
 import heroLeadershipCampaign from '../../assets/hero-leadership-campaign.jpg';
+import heroDigitalBharat from '../../assets/hero-digital-bharat.jpg';
+import heroParliamentTricolor from '../../assets/hero-parliament-tricolor.jpg';
 
 interface CitizenHeroProps {
   isLoggedIn: boolean;
@@ -25,6 +29,40 @@ interface CitizenHeroProps {
   onQuickViewProfile?: () => void;
 }
 
+interface HeroSlide {
+  id: string;
+  image: string;
+  position?: string;
+  label: string;
+}
+
+const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: 'scenic',
+    image: heroScenicClean,
+    position: 'center center',
+    label: 'Slide 1 of 4: Scenic India Gate Sunrise Panorama',
+  },
+  {
+    id: 'campaign',
+    image: heroLeadershipCampaign,
+    position: 'right center',
+    label: 'Slide 2 of 4: National Leadership Campaign',
+  },
+  {
+    id: 'citizens',
+    image: heroDigitalBharat,
+    position: 'center center',
+    label: 'Slide 3 of 4: Digital Bharat & Empowered Citizens',
+  },
+  {
+    id: 'parliament',
+    image: heroParliamentTricolor,
+    position: 'center center',
+    label: 'Slide 4 of 4: Kartavya Path & Parliament Tricolor Illumination',
+  },
+];
+
 export const CitizenHero: React.FC<CitizenHeroProps> = ({
   isLoggedIn,
   onOpenLogin,
@@ -33,7 +71,19 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
   onQuickViewProfile,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [heroTheme, setHeroTheme] = useState<'panoramic' | 'campaign'>('panoramic');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-advance slideshow every 6 seconds unless paused or hovered
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const sampleKeywords = [
     'Income certificate',
@@ -56,39 +106,28 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
     onSearch(keyword);
   };
 
-  const activeBackdrop = heroTheme === 'campaign' ? heroLeadershipCampaign : heroScenicClean;
-
   return (
     <section
       className="hero-section"
-      style={{
-        backgroundImage: `linear-gradient(90deg, rgba(8, 28, 64, 0.94) 0%, rgba(11, 47, 107, 0.82) 48%, rgba(15, 23, 42, 0.35) 78%, rgba(15, 23, 42, 0.12) 100%), url(${activeBackdrop})`,
-        backgroundSize: 'cover',
-        backgroundPosition: heroTheme === 'campaign' ? 'right center' : 'center center',
-      }}
       aria-label="Portal Introduction"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="portal-container">
-        {/* Subtle Backdrop Theme Switcher (Top Right) */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.75rem' }}>
-          <div className="hero-backdrop-toggle" role="group" aria-label="Hero backdrop theme toggle">
-            <button
-              onClick={() => setHeroTheme('panoramic')}
-              className={`backdrop-btn ${heroTheme === 'panoramic' ? 'active' : ''}`}
-              title="Show Scenic India Gate Panorama"
-            >
-              Citizen Panorama
-            </button>
-            <button
-              onClick={() => setHeroTheme('campaign')}
-              className={`backdrop-btn ${heroTheme === 'campaign' ? 'active' : ''}`}
-              title="Show National Leadership Banner"
-            >
-              Leadership Campaign
-            </button>
-          </div>
-        </div>
+      {/* Background Cross-Fade Image Slideshow Viewport */}
+      <div className="hero-slideshow-viewport" aria-hidden="true">
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`hero-slide-layer ${idx === currentSlide ? 'active' : ''}`}
+            style={{
+              backgroundImage: `linear-gradient(90deg, rgba(8, 28, 64, 0.94) 0%, rgba(11, 47, 107, 0.82) 48%, rgba(15, 23, 42, 0.35) 78%, rgba(15, 23, 42, 0.12) 100%), url(${slide.image})`,
+              backgroundPosition: slide.position || 'center center',
+            }}
+          />
+        ))}
+      </div>
 
+      <div className="portal-container">
         <div className="hero-grid">
           {/* Left Column: Heading, Subtitle, Carousel Dots, Search & AI */}
           <div className="hero-content">
@@ -99,12 +138,35 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
                 : 'Access services, applications, documents and benefits securely in one place.'}
             </p>
 
-            {/* 4 Carousel Dots (Figma Desktop - 7) */}
-            <div className="carousel-dots" aria-hidden="true">
-              <span className="carousel-dot active" />
-              <span className="carousel-dot" />
-              <span className="carousel-dot" />
-              <span className="carousel-dot" />
+            {/* Interactive Carousel Dots & Slideshow Play/Pause Controls */}
+            <div
+              className="carousel-dots-container"
+              role="region"
+              aria-label="Hero background slideshow controls"
+            >
+              <div className="carousel-dots" role="tablist" aria-label="Hero slides">
+                {HERO_SLIDES.map((slide, idx) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={idx === currentSlide}
+                    aria-label={slide.label}
+                    className={`carousel-dot-btn ${idx === currentSlide ? 'active' : ''}`}
+                    onClick={() => setCurrentSlide(idx)}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                className="carousel-pause-toggle-btn"
+                onClick={() => setIsPaused((prev) => !prev)}
+                aria-label={isPaused ? 'Resume hero background slideshow' : 'Pause hero background slideshow'}
+                title={isPaused ? 'Resume slideshow' : 'Pause slideshow'}
+              >
+                {isPaused ? <Play size={11} aria-hidden="true" /> : <Pause size={11} aria-hidden="true" />}
+                <span className="sr-only">{isPaused ? 'Play' : 'Pause'}</span>
+              </button>
             </div>
 
             {/* Search Bar + Ask AI Row */}
