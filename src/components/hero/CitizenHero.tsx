@@ -121,20 +121,10 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
                 />
                 <button
                   type="submit"
-                  style={{
-                    background: 'var(--color-primary-blue)',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '6px',
-                    padding: '0.55rem 1.35rem',
-                    fontWeight: 600,
-                    fontSize: '0.875rem',
-                    cursor: 'pointer',
-                    transition: 'background 0.15s ease',
-                  }}
+                  className="hero-search-submit-btn"
                   aria-label="Submit search"
                 >
-                  Search
+                  <span>Search</span>
                 </button>
               </form>
 
@@ -291,22 +281,7 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
                 {/* Primary Sign In Button */}
                 <button
                   onClick={onOpenLogin}
-                  style={{
-                    width: '100%',
-                    background: 'var(--color-primary-blue)',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '8px',
-                    padding: '0.75rem',
-                    fontSize: '0.875rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    boxShadow: '0 4px 12px rgba(0, 102, 255, 0.25)',
-                  }}
+                  className="hero-secure-login-btn"
                 >
                   <Fingerprint size={17} />
                   <span>Aadhaar / Mobile Secure Login</span>

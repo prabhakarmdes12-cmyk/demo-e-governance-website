@@ -305,6 +305,79 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.75rem;
 }
 
+.btn-header-login {
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 6px rgba(0, 102, 255, 0.25);
+  transition: all 0.15s ease;
+}
+.btn-header-login:hover {
+  background: var(--color-primary-blue-hover);
+}
+
+.btn-header-logout {
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+.btn-header-logout:hover {
+  background: var(--color-primary-blue-hover);
+}
+
+.hero-search-submit-btn {
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1.35rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.hero-search-submit-btn:hover {
+  background: var(--color-primary-blue-hover);
+}
+
+.hero-secure-login-btn {
+  width: 100%;
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+  transition: all 0.15s ease;
+}
+.hero-secure-login-btn:hover {
+  background: var(--color-primary-blue-hover);
+}
+
 /* ==========================================================================
    HERO SECTION (Citizen First / AI First)
    ========================================================================== */
@@ -2587,7 +2660,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root[data-contrast="high-aaa"] p,
-:root[data-contrast="high-aaa"] span,
 :root[data-contrast="high-aaa"] .brand-tagline,
 :root[data-contrast="high-aaa"] .ai-first-subtext,
 :root[data-contrast="high-aaa"] .hero-subtitle,
@@ -2654,24 +2726,95 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF !important;
 }
 
-:root[data-contrast="high-aaa"] .ai-intent-chip,
-:root[data-contrast="high-aaa"] .filter-pill,
-:root[data-contrast="high-aaa"] .search-chip,
+/* ==========================================================================
+   YELLOW-ON-BLACK & BLACK-ON-YELLOW WCAG 2.1 AAA SPECIFICATIONS
+   ========================================================================== */
+
+/* 1. All Buttons & Active Elements with SOLID YELLOW BACKGROUND */
+:root[data-contrast="high-aaa"] .btn-header-login,
+:root[data-contrast="high-aaa"] .btn-header-logout,
+:root[data-contrast="high-aaa"] .hero-search-submit-btn,
+:root[data-contrast="high-aaa"] .hero-secure-login-btn,
+:root[data-contrast="high-aaa"] .ai-action-btn.primary,
+:root[data-contrast="high-aaa"] .ai-send-btn,
+:root[data-contrast="high-aaa"] .demo-tab-btn.active,
+:root[data-contrast="high-aaa"] .contrast-btn.active,
+:root[data-contrast="high-aaa"] .font-btn.active,
+:root[data-contrast="high-aaa"] .backdrop-btn.active,
+:root[data-contrast="high-aaa"] .filter-pill.active,
+:root[data-contrast="high-aaa"] .ai-intent-chip.active,
+:root[data-contrast="high-aaa"] .gov-wcag-badge {
+  background-color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: none !important;
+}
+
+/* Force all text, spans, icons, and SVGs inside yellow elements to PURE BLACK */
+:root[data-contrast="high-aaa"] .btn-header-login *,
+:root[data-contrast="high-aaa"] .btn-header-logout *,
+:root[data-contrast="high-aaa"] .hero-search-submit-btn *,
+:root[data-contrast="high-aaa"] .hero-secure-login-btn *,
+:root[data-contrast="high-aaa"] .ai-action-btn.primary *,
+:root[data-contrast="high-aaa"] .ai-send-btn *,
+:root[data-contrast="high-aaa"] .demo-tab-btn.active *,
+:root[data-contrast="high-aaa"] .contrast-btn.active *,
+:root[data-contrast="high-aaa"] .font-btn.active *,
+:root[data-contrast="high-aaa"] .backdrop-btn.active *,
+:root[data-contrast="high-aaa"] .filter-pill.active *,
+:root[data-contrast="high-aaa"] .ai-intent-chip.active *,
+:root[data-contrast="high-aaa"] .gov-wcag-badge * {
+  color: #000000 !important;
+  stroke: #000000 !important;
+  font-weight: 800 !important;
+}
+
+:root[data-contrast="high-aaa"] .btn-header-login svg,
+:root[data-contrast="high-aaa"] .btn-header-logout svg,
+:root[data-contrast="high-aaa"] .hero-secure-login-btn svg,
+:root[data-contrast="high-aaa"] .demo-tab-btn.active svg,
+:root[data-contrast="high-aaa"] .contrast-btn.active svg,
+:root[data-contrast="high-aaa"] .ai-send-btn svg {
+  stroke: #000000 !important;
+  color: #000000 !important;
+}
+
+/* 2. Inactive Buttons / Tabs / Controls (Black background, Yellow border, White text) */
 :root[data-contrast="high-aaa"] .demo-tab-btn,
+:root[data-contrast="high-aaa"] .contrast-btn,
+:root[data-contrast="high-aaa"] .font-btn,
+:root[data-contrast="high-aaa"] .backdrop-btn,
+:root[data-contrast="high-aaa"] .utility-icon-btn,
+:root[data-contrast="high-aaa"] .search-chip,
+:root[data-contrast="high-aaa"] .filter-pill,
+:root[data-contrast="high-aaa"] .ai-intent-chip,
 :root[data-contrast="high-aaa"] .btn-hub-action {
-  background: #000000 !important;
+  background-color: #000000 !important;
   border: 1.5px solid #FFFF00 !important;
   color: #FFFFFF !important;
 }
-:root[data-contrast="high-aaa"] .ai-intent-chip.active,
-:root[data-contrast="high-aaa"] .filter-pill.active,
-:root[data-contrast="high-aaa"] .demo-tab-btn.active {
-  background: #FFFF00 !important;
-  color: #000000 !important;
-  font-weight: 800 !important;
-  border: 2px solid #FFFF00 !important;
+
+:root[data-contrast="high-aaa"] .demo-tab-btn:not(.active) *,
+:root[data-contrast="high-aaa"] .contrast-btn:not(.active) *,
+:root[data-contrast="high-aaa"] .font-btn:not(.active) *,
+:root[data-contrast="high-aaa"] .backdrop-btn:not(.active) *,
+:root[data-contrast="high-aaa"] .utility-icon-btn:not(.active) *,
+:root[data-contrast="high-aaa"] .search-chip *,
+:root[data-contrast="high-aaa"] .filter-pill:not(.active) *,
+:root[data-contrast="high-aaa"] .ai-intent-chip:not(.active) *,
+:root[data-contrast="high-aaa"] .btn-hub-action * {
+  color: #FFFFFF !important;
 }
 
+:root[data-contrast="high-aaa"] .demo-tab-btn:not(.active) svg,
+:root[data-contrast="high-aaa"] .contrast-btn:not(.active) svg,
+:root[data-contrast="high-aaa"] .utility-icon-btn svg {
+  stroke: #FFFF00 !important;
+  color: #FFFF00 !important;
+}
+
+/* 3. Icon Badges & Highlights */
 :root[data-contrast="high-aaa"] .ai-bot-avatar-circle,
 :root[data-contrast="high-aaa"] .ai-result-sparkle-badge,
 :root[data-contrast="high-aaa"] .ai-popular-arrow-btn,
@@ -2683,19 +2826,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFF00 !important;
 }
 
-:root[data-contrast="high-aaa"] .ai-action-btn.primary {
-  background: #FFFF00 !important;
-  color: #000000 !important;
-  border: 2px solid #FFFF00 !important;
-  font-weight: 800 !important;
-}
-
 :root[data-contrast="high-aaa"] .ai-action-btn.outline {
   background: #000000 !important;
   color: #FFFF00 !important;
   border: 2px solid #FFFF00 !important;
 }
 
+/* 4. Footer in High Contrast */
 :root[data-contrast="high-aaa"] .portal-footer.mega-footer {
   background-color: #000000 !important;
   border-top: 3px solid #FFFF00 !important;

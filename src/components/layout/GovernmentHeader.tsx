@@ -152,43 +152,20 @@ export const GovernmentHeader: React.FC<GovernmentHeaderProps> = ({
                 </div>
                 <button
                   onClick={onLogout}
-                  style={{
-                    background: 'var(--color-primary-blue)',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '6px',
-                    padding: '0.45rem 0.85rem',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                  }}
+                  className="btn-header-logout"
                   title="Logout"
                 >
-                  <LogOut size={13} /> Logout
+                  <LogOut size={13} />
+                  <span>Logout</span>
                 </button>
               </div>
             ) : (
               <button
                 onClick={onOpenLogin}
-                style={{
-                  background: 'var(--color-primary-blue)',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: '6px',
-                  padding: '0.5rem 1.15rem',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  boxShadow: '0 2px 6px rgba(0, 102, 255, 0.25)',
-                }}
+                className="btn-header-login"
               >
-                <LogIn size={15} /> Login / Register
+                <LogIn size={15} />
+                <span>Login / Register</span>
               </button>
             )}
 
