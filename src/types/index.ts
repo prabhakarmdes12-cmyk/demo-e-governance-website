@@ -1,4 +1,4 @@
-export type PortalViewMode = 'citizen-logged-in' | 'citizen-guest' | 'ai-first';
+export type PortalViewMode = 'task-first' | 'citizen-logged-in' | 'citizen-guest' | 'ai-first';
 
 export type ApplicationStatus = 'Approved' | 'In Progress' | 'Action Required' | 'Rejected' | 'Draft' | 'New';
 

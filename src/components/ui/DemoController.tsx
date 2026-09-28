@@ -1,6 +1,6 @@
 import React from 'react';
 import { PortalViewMode } from '../../types';
-import { UserCheck, Users, Bot, KeyRound, Sparkles } from 'lucide-react';
+import { UserCheck, Users, Bot, KeyRound, Sparkles, LayoutGrid } from 'lucide-react';
 
 interface DemoControllerProps {
   currentMode: PortalViewMode;
@@ -23,6 +23,13 @@ export const DemoController: React.FC<DemoControllerProps> = ({
             <Sparkles size={14} /> Case Study Demo Modes:
           </span>
           <div className="demo-tabs">
+            <button
+              className={`demo-tab-btn ${currentMode === 'task-first' ? 'active' : ''}`}
+              onClick={() => onSelectMode('task-first')}
+              title="Desktop - 2: Concept 1 Task / Service First Screen"
+            >
+              <LayoutGrid size={13} /> 01 — Task First
+            </button>
             <button
               className={`demo-tab-btn ${currentMode === 'citizen-logged-in' ? 'active' : ''}`}
               onClick={() => onSelectMode('citizen-logged-in')}

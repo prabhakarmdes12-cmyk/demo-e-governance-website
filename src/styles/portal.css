@@ -577,6 +577,328 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
 }
 
+/* ==========================================================================
+   CONCEPT 1: TASK FIRST HERO & HYPOTHESIS STYLES (FIGMA DESKTOP - 2 & 3)
+   ========================================================================== */
+.concept-hypothesis-ribbon {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-card);
+  padding: 0.55rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+:root[data-theme="dark"] .concept-hypothesis-ribbon {
+  background: #0D1629;
+  border-bottom-color: #202F4E;
+}
+:root[data-contrast="high-aaa"] .concept-hypothesis-ribbon {
+  background: #000000 !important;
+  border-bottom: 2px solid #FFFF00 !important;
+}
+
+.concept-tag-badge {
+  background: #EFF6FF;
+  color: var(--color-primary-blue);
+  border: 1px solid #BFDBFE;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+:root[data-theme="dark"] .concept-tag-badge {
+  background: #1E3A8A;
+  color: #93C5FD;
+  border-color: #3B82F6;
+}
+:root[data-contrast="high-aaa"] .concept-tag-badge {
+  background: #FFFF00 !important;
+  color: #000000 !important;
+  border-color: #FFFF00 !important;
+}
+
+.concept-flow-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.flow-badge {
+  background: var(--color-gray-100);
+  color: var(--text-main);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-card);
+}
+.flow-badge.primary {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border-color: #93C5FD;
+  font-weight: 700;
+}
+.flow-badge.ai {
+  background: #EDE9FE;
+  color: #5B21B6;
+  border-color: #C4B5FD;
+  font-weight: 700;
+}
+:root[data-theme="dark"] .flow-badge {
+  background: #1A2744;
+  border-color: #2E4166;
+  color: #CBD5E1;
+}
+:root[data-theme="dark"] .flow-badge.primary {
+  background: #1E3A8A;
+  color: #93C5FD;
+  border-color: #3B82F6;
+}
+:root[data-theme="dark"] .flow-badge.ai {
+  background: #3730A3;
+  color: #C7D2FE;
+  border-color: #6366F1;
+}
+:root[data-contrast="high-aaa"] .flow-badge {
+  background: #000000 !important;
+  border-color: #FFFF00 !important;
+  color: #FFFFFF !important;
+}
+:root[data-contrast="high-aaa"] .flow-badge.primary {
+  background: #FFFF00 !important;
+  color: #000000 !important;
+}
+:root[data-contrast="high-aaa"] .flow-badge.ai {
+  background: #00FFFF !important;
+  color: #000000 !important;
+}
+
+.task-first-hero-tagline {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FBBF24;
+  margin: -0.25rem 0 0.85rem;
+  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+:root[data-contrast="high-aaa"] .task-first-hero-tagline {
+  color: #FFFF00 !important;
+  text-shadow: none !important;
+}
+
+/* Floating Popular Services Card in Task First Hero */
+.task-first-popular-card {
+  background: #FFFFFF;
+  color: var(--color-gray-900);
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  text-align: left;
+  backdrop-filter: blur(12px);
+}
+:root[data-theme="dark"] .task-first-popular-card {
+  background: #152238;
+  color: #F8FAFC;
+  border-color: #283A5A;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.5);
+}
+:root[data-contrast="high-aaa"] .task-first-popular-card {
+  background: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+.task-first-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+:root[data-theme="dark"] .task-first-card-header {
+  border-bottom-color: #283A5A;
+}
+:root[data-contrast="high-aaa"] .task-first-card-header {
+  border-bottom-color: #FFFF00 !important;
+}
+
+.task-first-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  margin: 0;
+}
+:root[data-theme="dark"] .task-first-card-title {
+  color: #FFFFFF;
+}
+:root[data-contrast="high-aaa"] .task-first-card-title {
+  color: #FFFF00 !important;
+}
+
+.task-first-badge-top {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background: #EFF6FF;
+  color: var(--color-primary-blue);
+  border: 1px solid #BFDBFE;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+:root[data-theme="dark"] .task-first-badge-top {
+  background: #1E3A8A;
+  color: #93C5FD;
+  border-color: #3B82F6;
+}
+:root[data-contrast="high-aaa"] .task-first-badge-top {
+  background: #000000 !important;
+  color: #FFFF00 !important;
+  border-color: #FFFF00 !important;
+}
+
+.task-first-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.task-first-service-item-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+.task-first-service-item-btn:hover {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+  transform: translateX(2px);
+}
+:root[data-theme="dark"] .task-first-service-item-btn {
+  background: #1C2B45;
+  border-color: #283A5A;
+}
+:root[data-theme="dark"] .task-first-service-item-btn:hover {
+  background: #243657;
+  border-color: #3B82F6;
+}
+:root[data-contrast="high-aaa"] .task-first-service-item-btn {
+  background: #000000 !important;
+  border: 1.5px solid #FFFF00 !important;
+}
+:root[data-contrast="high-aaa"] .task-first-service-item-btn:hover {
+  background: #FFFF00 !important;
+}
+:root[data-contrast="high-aaa"] .task-first-service-item-btn:hover * {
+  color: #000000 !important;
+}
+
+.task-first-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.task-first-item-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+:root[data-contrast="high-aaa"] .task-first-item-icon-box {
+  background: #000000 !important;
+  color: #FFFF00 !important;
+  border: 1px solid #FFFF00;
+}
+
+.task-first-item-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-first-item-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+}
+:root[data-theme="dark"] .task-first-item-name {
+  color: #FFFFFF;
+}
+:root[data-contrast="high-aaa"] .task-first-item-name {
+  color: #FFFFFF;
+}
+
+.task-first-item-category {
+  font-size: 0.7rem;
+  color: var(--color-gray-600);
+}
+:root[data-theme="dark"] .task-first-item-category {
+  color: #94A3B8;
+}
+:root[data-contrast="high-aaa"] .task-first-item-category {
+  color: #FFFF00;
+}
+
+.task-first-item-chevron {
+  color: #94A3B8;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.task-first-service-item-btn:hover .task-first-item-chevron {
+  color: var(--color-primary-blue);
+  transform: translateX(2px);
+}
+:root[data-contrast="high-aaa"] .task-first-item-chevron {
+  color: #FFFF00;
+}
+
+.task-first-card-footer {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed #E2E8F0;
+}
+:root[data-theme="dark"] .task-first-card-footer {
+  border-top-color: #283A5A;
+}
+:root[data-contrast="high-aaa"] .task-first-card-footer {
+  border-top-color: #FFFF00;
+}
+
+.task-first-view-all-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.task-first-view-all-btn:hover {
+  text-decoration: underline;
+}
+:root[data-theme="dark"] .task-first-view-all-btn {
+  color: #60A5FA;
+}
+:root[data-contrast="high-aaa"] .task-first-view-all-btn {
+  color: #00FFFF !important;
+}
+
 /* Citizen Profile Card (Hero Right) */
 .citizen-profile-card {
   background: #FFFFFF;
@@ -2849,6 +3171,8 @@ h1, h2, h3, h4, h5, h6 {
 :root[data-contrast="high-aaa"] .backdrop-btn.active,
 :root[data-contrast="high-aaa"] .filter-pill.active,
 :root[data-contrast="high-aaa"] .ai-intent-chip.active,
+:root[data-contrast="high-aaa"] .concept-tag-badge,
+:root[data-contrast="high-aaa"] .flow-badge.primary,
 :root[data-contrast="high-aaa"] .gov-wcag-badge {
   background-color: #FFFF00 !important;
   border: 2px solid #FFFF00 !important;
@@ -2870,6 +3194,8 @@ h1, h2, h3, h4, h5, h6 {
 :root[data-contrast="high-aaa"] .backdrop-btn.active *,
 :root[data-contrast="high-aaa"] .filter-pill.active *,
 :root[data-contrast="high-aaa"] .ai-intent-chip.active *,
+:root[data-contrast="high-aaa"] .concept-tag-badge *,
+:root[data-contrast="high-aaa"] .flow-badge.primary *,
 :root[data-contrast="high-aaa"] .gov-wcag-badge * {
   color: #000000 !important;
   stroke: #000000 !important;

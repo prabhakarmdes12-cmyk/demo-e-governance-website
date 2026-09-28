@@ -15,6 +15,7 @@ import { GovernmentHeader } from './components/layout/GovernmentHeader';
 import { GovernmentFooter } from './components/layout/GovernmentFooter';
 
 // Screen Components
+import { TaskFirstHero } from './components/hero/TaskFirstHero';
 import { CitizenHero } from './components/hero/CitizenHero';
 import { AiFirstHero } from './components/hero/AiFirstHero';
 import { QuickActionsBar } from './components/services/QuickActionsBar';
@@ -166,7 +167,47 @@ export const App: React.FC = () => {
       {/* 3. Main Content Container */}
       <main id="main-content" style={{ flex: 1 }}>
         {/* Dynamic Screen Layout based on Mode */}
-        {viewMode === 'ai-first' ? (
+        {viewMode === 'task-first' ? (
+          /* Concept 1: TASK FIRST / SERVICE FIRST Screen (Figma Desktop - 2 & 3) */
+          <>
+            <div className="concept-hypothesis-ribbon">
+              <div className="portal-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                  <span className="concept-tag-badge">01 — SERVICE FIRST</span>
+                  <span style={{ fontSize: '0.8125rem', color: 'var(--text-main)', fontWeight: 500 }}>
+                    <strong>UX Hypothesis:</strong> Citizens complete tasks faster when services are organized around <strong>Search + Quick Actions + Departments + AI</strong> rather than bureaucratic hierarchy.
+                  </span>
+                </div>
+                <div className="concept-flow-badges">
+                  <span className="flow-badge primary">1. Search</span>
+                  <span className="flow-badge">2. Quick Actions</span>
+                  <span className="flow-badge">3. Departments</span>
+                  <span className="flow-badge ai">4. AI Assist</span>
+                </div>
+              </div>
+            </div>
+
+            <TaskFirstHero
+              onSearch={(query) => handleOpenAiWithPrompt(query)}
+              onOpenAi={() => handleOpenAiWithPrompt('')}
+              onSelectService={(serviceName) =>
+                handleOpenAiWithPrompt(`I would like to apply for ${serviceName}. What are the requirements and application steps?`)
+              }
+            />
+
+            {/* Quick Actions Row */}
+            <QuickActionsBar onActionClick={handleQuickAction} />
+
+            {/* Departments & Services Grid */}
+            <DepartmentGrid onSelectDepartment={handleSelectDepartment} />
+
+            {/* Popular Services Section (Filter Tabs, Services Grid, Schemes & Announcements) */}
+            <PopularServicesSection
+              onSelectService={handleSelectService}
+              onOpenHelp={() => handleOpenAiWithPrompt('I need help finding the right government service.')}
+            />
+          </>
+        ) : viewMode === 'ai-first' ? (
           /* Concept 3: INTENT / AI FIRST Screen (Figma Slide 8) */
           <AiFirstHero
             onAskAi={handleOpenAiWithPrompt}
