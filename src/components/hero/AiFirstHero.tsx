@@ -22,7 +22,6 @@ import {
   Headphones,
   ChevronRight
 } from 'lucide-react';
-import heroScenicClean from '../../assets/hero-scenic-clean.jpg';
 
 interface AiFirstHeroProps {
   onAskAi: (prompt: string) => void;
@@ -148,11 +147,6 @@ export const AiFirstHero: React.FC<AiFirstHeroProps> = ({ onAskAi, onOpenLogin }
       {/* 1. Hero / AI Assistant Header with Clean Scenic India Gate Backdrop */}
       <section
         className="ai-first-hero-section"
-        style={{
-          backgroundImage: `linear-gradient(180deg, rgba(235, 245, 255, 0.88) 0%, rgba(240, 248, 255, 0.94) 100%), url(${heroScenicClean})`,
-          backgroundPosition: 'center top',
-          backgroundSize: 'cover',
-        }}
         aria-label="Conversational AI Assistant Discovery"
       >
         <div className="portal-container" style={{ textAlign: 'center', maxWidth: '960px', margin: '0 auto' }}>

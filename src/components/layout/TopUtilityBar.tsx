@@ -128,7 +128,7 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({
                 Standard
               </button>
               <button
-                onClick={() => onChangeContrastMode('high-aaa')}
+                onClick={() => onChangeContrastMode(contrastMode === 'high-aaa' ? 'standard' : 'high-aaa')}
                 className={`contrast-btn high-contrast-tag ${contrastMode === 'high-aaa' ? 'active' : ''}`}
                 title="High Contrast WCAG AAA (Yellow on Black)"
                 aria-label="High Contrast AAA Mode (Yellow on Black)"

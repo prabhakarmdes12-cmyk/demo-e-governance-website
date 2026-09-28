@@ -109,25 +109,7 @@ export const CitizenHub: React.FC<CitizenHubProps> = ({
                     <StatusBadge status={app.status} />
                     <button
                       onClick={() => onViewApplication(app)}
-                      style={{
-                        background: '#FFFFFF',
-                        border: '1px solid #D1D5DB',
-                        borderRadius: '6px',
-                        padding: '0.35rem 0.85rem',
-                        fontSize: '0.8125rem',
-                        fontWeight: 600,
-                        color: '#1F2937',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = '#0066FF';
-                        e.currentTarget.style.color = '#0066FF';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = '#D1D5DB';
-                        e.currentTarget.style.color = '#1F2937';
-                      }}
+                      className="btn-hub-action"
                     >
                       View
                     </button>

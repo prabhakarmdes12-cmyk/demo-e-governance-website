@@ -141,44 +141,19 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
               {/* Ask AI Card */}
               <button
                 onClick={onOpenAi}
-                style={{
-                  background: '#FAF5FF',
-                  color: '#1E293B',
-                  border: '1.5px solid #C7D2FE',
-                  borderRadius: '10px',
-                  padding: '0.45rem 0.95rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  cursor: 'pointer',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.18)',
-                  whiteSpace: 'nowrap',
-                  textAlign: 'left',
-                }}
+                className="hero-ask-ai-card"
                 title="Ask AI Assistant"
                 aria-label="Open Viksit Bharat AI Assistant"
               >
-                <div
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '8px',
-                    background: '#0066FF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#fff',
-                    flexShrink: 0,
-                  }}
-                >
+                <div className="hero-ask-ai-icon">
                   <Bot size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#1E293B', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <div className="hero-ask-ai-title">
                     Ask AI Assistant
-                    <Sparkles size={12} style={{ color: '#EAB308' }} />
+                    <Sparkles size={12} className="hero-sparkle-icon" />
                   </div>
-                  <div style={{ fontSize: '0.6875rem', color: '#64748B' }}>
+                  <div className="hero-ask-ai-sub">
                     Find services, check steps
                   </div>
                 </div>
@@ -240,28 +215,28 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
 
                 {/* 4 Stat Boxes (Figma Pixel Perfect) */}
                 <div className="profile-stats-grid">
-                  <div className="profile-stat-box" style={{ background: '#F0F7FF', border: '1px solid #D0E4FF' }}>
-                    <FileText size={16} style={{ color: '#0066FF' }} />
-                    <div className="stat-item-number" style={{ color: '#1E293B' }}>{CITIZEN_PROFILE.stats.applications}</div>
-                    <div className="stat-item-label" style={{ color: '#64748B' }}>Applications</div>
+                  <div className="profile-stat-box stat-blue">
+                    <FileText size={16} />
+                    <div className="stat-item-number">{CITIZEN_PROFILE.stats.applications}</div>
+                    <div className="stat-item-label">Applications</div>
                   </div>
 
-                  <div className="profile-stat-box" style={{ background: '#F0FDF4', border: '1px solid #DCFCE7' }}>
-                    <FolderCheck size={16} style={{ color: '#16A34A' }} />
-                    <div className="stat-item-number" style={{ color: '#1E293B' }}>{CITIZEN_PROFILE.stats.documents}</div>
-                    <div className="stat-item-label" style={{ color: '#64748B' }}>Documents</div>
+                  <div className="profile-stat-box stat-green">
+                    <FolderCheck size={16} />
+                    <div className="stat-item-number">{CITIZEN_PROFILE.stats.documents}</div>
+                    <div className="stat-item-label">Documents</div>
                   </div>
 
-                  <div className="profile-stat-box" style={{ background: '#F5F3FF', border: '1px solid #E0E7FF' }}>
-                    <Star size={16} style={{ color: '#6366F1' }} />
-                    <div className="stat-item-number" style={{ color: '#1E293B' }}>{CITIZEN_PROFILE.stats.benefits}</div>
-                    <div className="stat-item-label" style={{ color: '#64748B' }}>Benefits</div>
+                  <div className="profile-stat-box stat-indigo">
+                    <Star size={16} />
+                    <div className="stat-item-number">{CITIZEN_PROFILE.stats.benefits}</div>
+                    <div className="stat-item-label">Benefits</div>
                   </div>
 
-                  <div className="profile-stat-box" style={{ background: '#FFFBEB', border: '1px solid #FEF3C7' }}>
-                    <AlertTriangle size={16} style={{ color: '#D97706' }} />
-                    <div className="stat-item-number" style={{ color: '#B45309' }}>{CITIZEN_PROFILE.stats.actionRequired}</div>
-                    <div className="stat-item-label" style={{ color: '#92400E' }}>Action Req.</div>
+                  <div className="profile-stat-box stat-amber">
+                    <AlertTriangle size={16} />
+                    <div className="stat-item-number">{CITIZEN_PROFILE.stats.actionRequired}</div>
+                    <div className="stat-item-label">Action Req.</div>
                   </div>
                 </div>
               </div>
@@ -269,18 +244,7 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
               /* Unauthenticated / Returning Citizen Claim Card (Desktop - 6) */
               <div className="citizen-profile-card">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
-                  <div
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '50%',
-                      background: '#EFF6FF',
-                      color: '#0066FF',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
+                  <div className="claim-header-icon-wrap">
                     <UserCheck size={24} />
                   </div>
                   <div>
@@ -294,15 +258,7 @@ export const CitizenHero: React.FC<CitizenHeroProps> = ({
                 {/* Big CTA Card: Find & Claim Your Profile */}
                 <div
                   onClick={onOpenLogin}
-                  style={{
-                    background: '#F8FAFC',
-                    border: '1.5px dashed #0066FF',
-                    borderRadius: '8px',
-                    padding: '1.15rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                    marginBottom: '1rem',
-                  }}
+                  className="claim-profile-box"
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => { if (e.key === 'Enter') onOpenLogin(); }}
