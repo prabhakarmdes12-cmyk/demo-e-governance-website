@@ -170,23 +170,6 @@ export const App: React.FC = () => {
         {viewMode === 'task-first' ? (
           /* Concept 1: TASK FIRST / SERVICE FIRST Screen (Figma Desktop - 2 & 3) */
           <>
-            <div className="concept-hypothesis-ribbon">
-              <div className="portal-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                  <span className="concept-tag-badge">01 — SERVICE FIRST</span>
-                  <span style={{ fontSize: '0.8125rem', color: 'var(--text-main)', fontWeight: 500 }}>
-                    <strong>UX Hypothesis:</strong> Citizens complete tasks faster when services are organized around <strong>Search + Quick Actions + Departments + AI</strong> rather than bureaucratic hierarchy.
-                  </span>
-                </div>
-                <div className="concept-flow-badges">
-                  <span className="flow-badge primary">1. Search</span>
-                  <span className="flow-badge">2. Quick Actions</span>
-                  <span className="flow-badge">3. Departments</span>
-                  <span className="flow-badge ai">4. AI Assist</span>
-                </div>
-              </div>
-            </div>
-
             <TaskFirstHero
               onSearch={(query) => handleOpenAiWithPrompt(query)}
               onOpenAi={() => handleOpenAiWithPrompt('')}
